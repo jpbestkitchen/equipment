@@ -209,7 +209,7 @@ function sendOrder() {
     message += '\nPlease contact me with more information.\n\n';
     message += 'My contact details:\nName: \nPhone: \nDelivery Address: ';
     
-    window.open(`https://wa.me/2348161653750?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/2348164015614?text=${encodeURIComponent(message)}`, '_blank');
 }
 
 // Make displayCartItems available globally
