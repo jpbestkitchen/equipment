@@ -44,7 +44,7 @@ function getCategoryFromUrl() {
     return filename.replace(/-/g, ' ');
 }
 
-// Add item to cart
+// Add item to cart with custom notification
 function addToCart(product) {
     let cart = JSON.parse(localStorage.getItem('cart'));
     
@@ -55,9 +55,28 @@ function addToCart(product) {
         cart.push(product);
         localStorage.setItem('cart', JSON.stringify(cart));
         updateCartCount();
-        alert(`${product.name} added to cart!`);
+        
+        // Create and show custom alert
+        const alert = document.createElement('div');
+        alert.className = 'custom-alert';
+        alert.textContent = `${product.name} added to cart!`;
+        document.body.appendChild(alert);
+        
+        // Remove alert after animation completes
+        setTimeout(() => {
+            alert.remove();
+        }, 3000);
     } else {
-        alert(`${product.name} is already in your cart!`);
+        // Create and show custom alert for existing item
+        const alert = document.createElement('div');
+        alert.className = 'custom-alert';
+        alert.textContent = `${product.name} is already in your cart!`;
+        alert.style.background = '#ff9800'; // Orange color for warning
+        document.body.appendChild(alert);
+        
+        setTimeout(() => {
+            alert.remove();
+        }, 3000);
     }
 }
 
@@ -125,10 +144,22 @@ function displayCartItems() {
 function removeFromCart(index) {
     let cart = JSON.parse(localStorage.getItem('cart'));
     if (index >= 0 && index < cart.length) {
+        const removedItem = cart[index].name;
         cart.splice(index, 1);
         localStorage.setItem('cart', JSON.stringify(cart));
         displayCartItems();
         updateCartCount();
+        
+        // Show removal notification
+        const alert = document.createElement('div');
+        alert.className = 'custom-alert';
+        alert.textContent = `${removedItem} removed from cart!`;
+        alert.style.background = '#f44336'; // Red color for removal
+        document.body.appendChild(alert);
+        
+        setTimeout(() => {
+            alert.remove();
+        }, 3000);
     }
 }
 
@@ -196,11 +227,20 @@ document.querySelector('.hero').addEventListener('mouseleave', function() {
 function sendOrder() {
     const cart = JSON.parse(localStorage.getItem('cart'));
     if (cart.length === 0) {
-        alert('Your cart is empty!');
+        // Show empty cart notification
+        const alert = document.createElement('div');
+        alert.className = 'custom-alert';
+        alert.textContent = 'Your cart is empty!';
+        alert.style.background = '#f44336';
+        document.body.appendChild(alert);
+        
+        setTimeout(() => {
+            alert.remove();
+        }, 3000);
         return;
     }
     
-    let message = 'Hello ProKitchen Solutions,\n\nI am interested in the following equipment:\n\n';
+    let message = 'Hello Echewise Global,\n\nI am interested in the following equipment:\n\n';
     
     cart.forEach(item => {
         message += `- ${item.name} (${item.category})\n`;
