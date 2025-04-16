@@ -123,7 +123,7 @@ nav ul li a:hover {
     width: 100%; /* 3 images wide for sliding effect */
     height: 100%;
     display: flex;
-    animation: slide 30s infinite linear;
+    animation: slide 10s infinite linear;
     z-index: 1;
 }
 
@@ -152,12 +152,7 @@ nav ul li a:hover {
 
 @keyframes slide {
     0% { transform: translateX(0); }
-    30% { transform: translateX(0); }
-    33% { transform: translateX(-33.333%); }
-    63% { transform: translateX(-33.333%); }
-    66% { transform: translateX(-66.666%); }
-    97% { transform: translateX(-66.666%); }
-    100% { transform: translateX(0); }
+    100% { transform: translateX(-66.666%); } /* Moves continuously */
 }
 /* Categories Section */
 .categories {
