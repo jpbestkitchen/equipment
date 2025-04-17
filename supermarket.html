@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Supermarket Equipment | ProKitchen Solutions</title>
+    <title>Supermarket Equipment | Echewise Global Kitchen Equipment</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -11,7 +11,7 @@
     <header>
         <div class="container">
             <div class="logo">
-                <img src="images/logo.jpg" alt="ProKitchen Solutions Logo">
+                <img src="images/logo.jpg" alt="Echewise Global Kitchen Equipment">
                 <h1>Echewise Global Kitchen Equipment</h1>
             </div>
             <nav>
@@ -19,7 +19,6 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="index.html#about">About Us</a></li>
                     <li><a href="index.html#categories">Categories</a></li>
-                    <li><a href="cart.html" id="cart-link">Cart (<span id="cart-count">0</span>)</a></li>
                 </ul>
             </nav>
         </div>
@@ -38,23 +37,23 @@
                 <img src="images/under-bar-fridge-2-door.jpg" alt="Under Bar Refrigerator">
                 <div class="product-info">
                     <h3>Under Bar Refrigerator</h3>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-btn" data-product="Under Bar Refrigerator">Buy Now</button>
                 </div>
             </div>
             
             <div class="product-card" data-id="sm2">
-                <img src="images/shelve.jpg" alt="Under Bar Refrigerator">
+                <img src="images/shelve.jpg" alt="Stainless Steel Shelving">
                 <div class="product-info">
-                    <h3>Under Bar Refrigerator</h3>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <h3>Stainless Steel Shelving</h3>
+                    <button class="buy-btn" data-product="Stainless Steel Shelving">Buy Now</button>
                 </div>
             </div>
             
             <div class="product-card" data-id="sm3">
-                <img src="images/stainless.png" alt="Plain Stainless Shelve">
+                <img src="images/stainless.png" alt="Plain Stainless Shelf">
                 <div class="product-info">
-                    <h3>Plain Stainless Shelve</h3>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <h3>Plain Stainless Shelf</h3>
+                    <button class="buy-btn" data-product="Plain Stainless Shelf">Buy Now</button>
                 </div>
             </div>
             
@@ -62,7 +61,7 @@
                 <img src="images/floorcake.jpg" alt="Floor Cake Display Chiller">
                 <div class="product-info">
                     <h3>Floor Cake Display Chiller</h3>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-btn" data-product="Floor Cake Display Chiller">Buy Now</button>
                 </div>
             </div>
             
@@ -70,15 +69,15 @@
                 <img src="images/singledoor.jpg" alt="Single Door Display Chiller">
                 <div class="product-info">
                     <h3>Single Door Display Chiller</h3>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-btn" data-product="Single Door Display Chiller">Buy Now</button>
                 </div>
             </div>
             
             <div class="product-card" data-id="sm6">
-                <img src="images/troley.jpg" alt="Trolley">
+                <img src="images/troley.jpg" alt="Shopping Trolley">
                 <div class="product-info">
-                    <h3>Trolley</h3>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <h3>Shopping Trolley</h3>
+                    <button class="buy-btn" data-product="Shopping Trolley">Buy Now</button>
                 </div>
             </div>
 
@@ -86,7 +85,7 @@
                 <img src="images/checkout-counter.webp" alt="Supermarket Checkout Counter">
                 <div class="product-info">
                     <h3>Supermarket Checkout Counter</h3>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-btn" data-product="Supermarket Checkout Counter">Buy Now</button>
                 </div>
             </div>
             
@@ -94,7 +93,7 @@
                 <img src="images/bakery-display.webp" alt="Bakery Display Case">
                 <div class="product-info">
                     <h3>Bakery Display Case</h3>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-btn" data-product="Bakery Display Case">Buy Now</button>
                 </div>
             </div>
             
@@ -102,7 +101,7 @@
                 <img src="images/produce-display.jpg" alt="Produce Display Rack">
                 <div class="product-info">
                     <h3>Produce Display Rack</h3>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-btn" data-product="Produce Display Rack">Buy Now</button>
                 </div>
             </div>
             
@@ -110,7 +109,7 @@
                 <img src="images/meat-display-case.webp" alt="Meat Display Case">
                 <div class="product-info">
                     <h3>Meat Display Case</h3>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-btn" data-product="Meat Display Case">Buy Now</button>
                 </div>
             </div>
             
@@ -118,7 +117,7 @@
                 <img src="images/gondola-shelving.webp" alt="Gondola Shelving Unit">
                 <div class="product-info">
                     <h3>Gondola Shelving Unit</h3>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-btn" data-product="Gondola Shelving Unit">Buy Now</button>
                 </div>
             </div>
             
@@ -126,7 +125,7 @@
                 <img src="images/deli-counter.jpg" alt="Deli Service Counter">
                 <div class="product-info">
                     <h3>Deli Service Counter</h3>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-btn" data-product="Deli Service Counter">Buy Now</button>
                 </div>
             </div>
             
@@ -134,7 +133,7 @@
                 <img src="images/beverage-cooler.avif" alt="Glass Door Beverage Cooler">
                 <div class="product-info">
                     <h3>Glass Door Beverage Cooler</h3>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-btn" data-product="Glass Door Beverage Cooler">Buy Now</button>
                 </div>
             </div>
             
@@ -142,7 +141,7 @@
                 <img src="images/rolling-ladder.png" alt="Warehouse Rolling Ladder">
                 <div class="product-info">
                     <h3>Warehouse Rolling Ladder</h3>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-btn" data-product="Warehouse Rolling Ladder">Buy Now</button>
                 </div>
             </div>
             
@@ -150,7 +149,7 @@
                 <img src="images/bulk-bin.avif" alt="Bulk Food Display Bin">
                 <div class="product-info">
                     <h3>Bulk Food Display Bin</h3>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-btn" data-product="Bulk Food Display Bin">Buy Now</button>
                 </div>
             </div>
             
@@ -158,11 +157,10 @@
                 <img src="images/frozen-food-case.webp" alt="Frozen Food Display Case">
                 <div class="product-info">
                     <h3>Frozen Food Display Case</h3>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="buy-btn" data-product="Frozen Food Display Case">Buy Now</button>
                 </div>
             </div>
         </div>
-
     </main>
 
     <footer>
@@ -178,22 +176,27 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="index.html#about">About Us</a></li>
                         <li><a href="index.html#categories">Categories</a></li>
-                        <li><a href="cart.html">Cart</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Connect With Us</h3>
                     <div class="social-links">
-                        <a href="https://web.facebook.com/profile.php?id=100063939943825" target="_blank"><i class="fab fa-facebook"></i></a>
-                        <a href="https://instagram.com/echewise_global_kitchen_equip" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/2348164015614" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://web.facebook.com/profile.php?id=100063939943825" target="_blank">
+                            <i class="fab fa-facebook"></i> Echewise Facebook
+                        </a>
+                        <a href="https://instagram.com/echewise_global_kitchen_equip" target="_blank">
+                            <i class="fab fa-instagram"></i> Echewise Instagram
+                        </a>
+                        <a href="https://wa.me/2348164015614" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Echewise Whatsapp
+                        </a>
                     </div>
                     <p>Email: echewise1@gmail.com</p>
                     <p>Phone: +234 816 401 5614</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Echewise Global Kitchen Equipment. All Rights Reserved.</p>
+                <p>&copy; 2025 Echewise Global Kitchen Equipment. All Rights Reserved.</p>
             </div>
         </div>
     </footer>

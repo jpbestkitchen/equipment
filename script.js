@@ -1,256 +1,80 @@
-// Initialize cart when page loads
 document.addEventListener('DOMContentLoaded', function() {
-    initializeCart();
-});
-
-function initializeCart() {
-    // Create cart if it doesn't exist
-    if (!localStorage.getItem('cart')) {
-        localStorage.setItem('cart', JSON.stringify([]));
-    }
+    // Handle all buy buttons
+    const buyButtons = document.querySelectorAll('.buy-btn');
     
-    updateCartCount();
-    setupAddToCartButtons();
-    setupSearch();
-    
-    // Display cart items if on cart page
-    if (window.location.pathname.includes('cart.html')) {
-        displayCartItems();
-    }
-}
-
-// Set up all "Add to Cart" buttons
-function setupAddToCartButtons() {
-    const buttons = document.querySelectorAll('.add-to-cart');
-    buttons.forEach(button => {
+    buyButtons.forEach(button => {
         button.addEventListener('click', function() {
-            const productCard = this.closest('.product-card');
-            const product = {
-                id: productCard.dataset.id,
-                name: productCard.querySelector('h3').textContent,
-                image: productCard.querySelector('img').src,
-                category: getCategoryFromUrl()
-            };
+            const productName = this.getAttribute('data-product');
+            const whatsappNumber = '+2348164015614';
+            const message = `Hello Echewise, I'm interested in your ${productName}. Please send me more details and pricing information.`;
             
-            addToCart(product);
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
         });
     });
-}
 
-// Get category from current URL
-function getCategoryFromUrl() {
-    const path = window.location.pathname;
-    const filename = path.split('/').pop().split('.')[0];
-    return filename.replace(/-/g, ' ');
-}
-
-// Add item to cart with custom notification
-function addToCart(product) {
-    let cart = JSON.parse(localStorage.getItem('cart'));
-    
-    // Check if product already exists in cart
-    const existingItem = cart.find(item => item.id === product.id);
-    
-    if (!existingItem) {
-        cart.push(product);
-        localStorage.setItem('cart', JSON.stringify(cart));
-        updateCartCount();
-        
-        // Create and show custom alert
-        const alert = document.createElement('div');
-        alert.className = 'custom-alert';
-        alert.textContent = `${product.name} added to cart!`;
-        document.body.appendChild(alert);
-        
-        // Remove alert after animation completes
-        setTimeout(() => {
-            alert.remove();
-        }, 3000);
-    } else {
-        // Create and show custom alert for existing item
-        const alert = document.createElement('div');
-        alert.className = 'custom-alert';
-        alert.textContent = `${product.name} is already in your cart!`;
-        alert.style.background = '#ff9800'; // Orange color for warning
-        document.body.appendChild(alert);
-        
-        setTimeout(() => {
-            alert.remove();
-        }, 3000);
-    }
-}
-
-// Update cart count in header
-function updateCartCount() {
-    const cart = JSON.parse(localStorage.getItem('cart'));
-    document.getElementById('cart-count').textContent = cart.length;
-}
-
-// Display cart items on cart page
-function displayCartItems() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const cartItemsContainer = document.querySelector('.cart-items');
-    const emptyCartContainer = document.querySelector('.empty-cart');
-    
-    // Clear existing items but keep heading
-    if (cartItemsContainer) {
-        cartItemsContainer.innerHTML = '<h3>Your Selected Items</h3>';
-    }
-    
-    if (cart.length === 0) {
-        if (emptyCartContainer) emptyCartContainer.style.display = 'block';
-        if (cartItemsContainer) cartItemsContainer.style.display = 'none';
-        return;
-    }
-    
-    if (emptyCartContainer) emptyCartContainer.style.display = 'none';
-    if (cartItemsContainer) cartItemsContainer.style.display = 'block';
-    
-    // Add each item to the cart display
-    cart.forEach((item, index) => {
-        const itemElement = document.createElement('div');
-        itemElement.className = 'cart-item';
-        itemElement.innerHTML = `
-            <img src="${item.image}" alt="${item.name}">
-            <div>
-                <h3>${item.name}</h3>
-                <p>Category: ${item.category}</p>
-            </div>
-            <button class="remove-item" data-index="${index}">
-                <i class="fas fa-trash"></i>
-            </button>
-        `;
-        
-        if (cartItemsContainer) {
-            cartItemsContainer.appendChild(itemElement);
-        }
-    });
-    
-    // Add event listeners for remove buttons
-    document.querySelectorAll('.remove-item').forEach(button => {
-        button.addEventListener('click', function() {
-            removeFromCart(parseInt(this.dataset.index));
-        });
-    });
-    
-    // Add event listener for send order button
-    const sendOrderButton = document.querySelector('.send-order');
-    if (sendOrderButton) {
-        sendOrderButton.addEventListener('click', sendOrder);
-    }
-}
-
-// Remove item from cart
-function removeFromCart(index) {
-    let cart = JSON.parse(localStorage.getItem('cart'));
-    if (index >= 0 && index < cart.length) {
-        const removedItem = cart[index].name;
-        cart.splice(index, 1);
-        localStorage.setItem('cart', JSON.stringify(cart));
-        displayCartItems();
-        updateCartCount();
-        
-        // Show removal notification
-        const alert = document.createElement('div');
-        alert.className = 'custom-alert';
-        alert.textContent = `${removedItem} removed from cart!`;
-        alert.style.background = '#f44336'; // Red color for removal
-        document.body.appendChild(alert);
-        
-        setTimeout(() => {
-            alert.remove();
-        }, 3000);
-    }
-}
-
-// Enhanced Search functionality
-function setupSearch() {
+    // Simple search functionality
     const searchBar = document.querySelector('.search-bar');
     const searchButton = document.querySelector('.search-button');
+    const productCards = document.querySelectorAll('.product-card');
     
-    if (searchBar && searchButton) {
-        // Search when button is clicked
-        searchButton.addEventListener('click', performSearch);
+    if (searchButton && searchBar) {
+        searchButton.addEventListener('click', function() {
+            const searchTerm = searchBar.value.toLowerCase();
+            
+            productCards.forEach(card => {
+                const productName = card.querySelector('h3').textContent.toLowerCase();
+                if (productName.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
         
-        // Search when typing (real-time search)
-        searchBar.addEventListener('input', performSearch);
-        
-        // Search when Enter key is pressed
+        // Also search when pressing Enter
         searchBar.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
-                performSearch();
+                searchButton.click();
             }
         });
     }
-}
-
-function performSearch() {
-    const searchTerm = document.querySelector('.search-bar').value.toLowerCase().trim();
-    const productCards = document.querySelectorAll('.product-card');
-    let foundResults = false;
     
-    productCards.forEach(card => {
-        const productName = card.querySelector('h3').textContent.toLowerCase();
-        if (searchTerm === '' || productName.includes(searchTerm)) {
-            card.style.display = 'flex';
-            foundResults = true;
-        } else {
-            card.style.display = 'none';
+        const heroSlideshow = document.querySelector('.hero-slideshow');
+        if (heroSlideshow) {
+            const slides = document.querySelectorAll('.hero-slide');
+            let currentSlide = 0;
+            const slideCount = slides.length;
+            
+            // Initialize first slide
+            if (slideCount > 0) {
+                slides[currentSlide].style.opacity = '1';
+                
+                // Start slideshow if multiple slides exist
+                if (slideCount > 1) {
+                    setInterval(() => {
+                        // Fade out current slide
+                        slides[currentSlide].style.opacity = '0';
+                        
+                        // Move to next slide
+                        currentSlide = (currentSlide + 1) % slideCount;
+                        
+                        // Fade in next slide
+                        slides[currentSlide].style.opacity = '1';
+                    }, 5000);
+                }
+            }
         }
     });
-    
-    // Show "no results" message if needed
-    const noResultsMsg = document.querySelector('.no-results');
-    if (!foundResults && searchTerm !== '') {
-        if (!noResultsMsg) {
-            const productsGrid = document.querySelector('.products-grid');
-            const msg = document.createElement('div');
-            msg.className = 'no-results';
-            msg.textContent = 'No products found matching your search.';
-            productsGrid.appendChild(msg);
-        }
-    } else if (noResultsMsg) {
-        noResultsMsg.remove();
-    }
-}
 
-// Pause slideshow on hover (optional)
-document.querySelector('.hero').addEventListener('mouseenter', function() {
-    document.querySelector('.hero-slideshow').style.animationPlayState = 'paused';
-});
-
-document.querySelector('.hero').addEventListener('mouseleave', function() {
-    document.querySelector('.hero-slideshow').style.animationPlayState = 'running';
-});
-
-// Send order via WhatsApp
-function sendOrder() {
-    const cart = JSON.parse(localStorage.getItem('cart'));
-    if (cart.length === 0) {
-        // Show empty cart notification
-        const alert = document.createElement('div');
-        alert.className = 'custom-alert';
-        alert.textContent = 'Your cart is empty!';
-        alert.style.background = '#f44336';
-        document.body.appendChild(alert);
-        
-        setTimeout(() => {
-            alert.remove();
-        }, 3000);
-        return;
-    }
-    
-    let message = 'Hello Echewise Global,\n\nI am interested in the following equipment:\n\n';
-    
-    cart.forEach(item => {
-        message += `- ${item.name} (${item.category})\n`;
+    // Make category cards clickable (for homepage)
+    const categoryCards = document.querySelectorAll('.category-card');
+    categoryCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const link = this.getAttribute('onclick');
+            if (link) {
+                const url = link.match(/window\.location\.href='(.*?)'/)[1];
+                window.location.href = url;
+            }
+        });
     });
-    
-    message += '\nPlease contact me with more information.\n\n';
-    message += 'My contact details:\nName: \nPhone: \nDelivery Address: ';
-    
-    window.open(`https://wa.me/2348164015614?text=${encodeURIComponent(message)}`, '_blank');
-}
-
-// Make displayCartItems available globally
-window.displayCartItems = displayCartItems;
