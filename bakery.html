@@ -8,19 +8,26 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
+    <header class="main-header">
         <div class="container">
-            <div class="logo">
-                <img src="images/logo.jpg" alt="Echewise Global Kitchen Equipment Logo">
-                <h1>Echewise Global Kitchen Equipment</h1>
+            <div class="header-content">
+                <div class="logo-brand">
+                    <img src="images/logo.jpg" alt="Echewise Logo" class="header-logo">
+                    <span class="brand-name">Echewise Global Kitchen Equipment</span>
+                </div>
+                
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span class="hamburger"></span>
+                </button>
+                
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+                        
+                        <li class="nav-item cta-item"><a href="https://wa.me/2348164015614" class="nav-cta">Contact Us</a></li>
+                    </ul>
+                </nav>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#about">About Us</a></li>
-                    <li><a href="index.html#categories">Categories</a></li>
-                </ul>
-            </nav>
         </div>
     </header>
 

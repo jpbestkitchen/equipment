@@ -196,6 +196,7 @@ body {
         height: 35px;
     }
 }
+
 /* Main Content Styles */
 .products-container {
     padding: 2rem 0;
@@ -407,7 +408,7 @@ footer {
 
 /* Bold Hero Section Styles */
 .hero-container {
-    
+    display: flex;
     padding: 5rem 1rem;
     text-align: center;
     color: white;
