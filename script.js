@@ -67,6 +67,38 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+     // Mobile menu toggle
+     const menuToggle = document.querySelector('.mobile-menu-toggle');
+     const nav = document.querySelector('.main-nav');
+     
+     menuToggle.addEventListener('click', function() {
+         this.classList.toggle('active');
+         nav.classList.toggle('active');
+     });
+     
+     // Close menu when clicking on nav links
+     document.querySelectorAll('.nav-link').forEach(link => {
+         link.addEventListener('click', function() {
+             if (window.innerWidth <= 768) {
+                 menuToggle.classList.remove('active');
+                 nav.classList.remove('active');
+             }
+         });
+     });
+    
+    // Update on resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            nav.style.display = '';
+            if (header.contains(mobileMenuButton)) {
+                header.removeChild(mobileMenuButton);
+            }
+        } else if (!header.contains(mobileMenuButton)) {
+            header.insertBefore(mobileMenuButton, nav);
+            nav.style.display = 'none';
+        }
+    });
+
     // Make category cards clickable (for homepage)
     const categoryCards = document.querySelectorAll('.category-card');
     categoryCards.forEach(card => {

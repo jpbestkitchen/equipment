@@ -9,97 +9,193 @@ body {
 }
 
 /* Header Styles */
-header {
-    background: #4CAF50;
-    color: white;
-    padding: 0.5rem 0; /* Reduced padding */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+/* Modern Header Styles */
+.main-header {
+    background: #fff;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
+    padding: 0.8rem 0;
 }
 
-.logo {
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-brand {
     display: flex;
     align-items: center;
-    gap: 0.5rem; /* Reduced gap */
+    gap: 0.8rem;
 }
 
-.logo img {
-    height: 50px; /* Reduced logo size */
+.header-logo {
+    height: 40px;
+    width: auto;
     border-radius: 4px;
 }
 
-.logo h1 {
-    font-size: 1.2rem; /* Reduced font size */
-    margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.brand-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #2c3e50;
+    letter-spacing: -0.5px;
 }
 
-nav ul {
+.main-nav {
+    transition: all 0.3s ease;
+}
+
+.nav-list {
     display: flex;
+    gap: 1.5rem;
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 0.8rem; /* Reduced gap */
 }
 
-nav a {
-    color: white;
+.nav-item {
+    display: inline-block;
+}
+
+.nav-link {
+    color: #34495e;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 0.9rem; /* Reduced font size */
-    transition: opacity 0.3s;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.3s;
 }
 
-/* Mobile-specific styles */
+.nav-link:hover,
+.nav-link.active {
+    color: #4CAF50;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #4CAF50;
+}
+
+.nav-cta {
+    background: #4CAF50;
+    color: white !important;
+    padding: 0.6rem 1.2rem !important;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.nav-cta:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(76, 175, 80, 0.2);
+}
+
+/* Mobile Menu Styles */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+}
+
+.hamburger {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: #2c3e50;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    left: 0;
+    transition: all 0.3s;
+}
+
+.hamburger::before {
+    top: -8px;
+}
+
+.hamburger::after {
+    top: 8px;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    header {
-        padding: 0.3rem 0; /* Even smaller padding */
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background: white;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        padding: 5rem 2rem;
+        transition: right 0.3s ease;
     }
     
-    .logo {
-        flex-direction: row; /* Keep logo and text in row */
-        justify-content: space-between;
-        width: 100%;
+    .nav-list {
+        flex-direction: column;
+        gap: 1.5rem;
     }
     
-    .logo img {
-        height: 35px; /* Smaller logo */
+    .mobile-menu-toggle {
+        display: block;
     }
     
-    .logo h1 {
-        font-size: 1rem; /* Smaller text */
-        max-width: 60%; /* Prevent overflow */
+    .main-nav.active {
+        right: 0;
     }
     
-    nav ul {
-        gap: 0.5rem; /* Smaller gap */
+    .mobile-menu-toggle.active .hamburger {
+        background: transparent;
     }
     
-    nav a {
-        font-size: 0.8rem; /* Smaller nav text */
-        padding: 0.2rem 0; /* Reduced padding */
+    .mobile-menu-toggle.active .hamburger::before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+    
+    .mobile-menu-toggle.active .hamburger::after {
+        transform: rotate(-45deg);
+        top: 0;
     }
 }
 
 @media (max-width: 480px) {
-    .logo h1 {
-        font-size: 0.9rem; /* Even smaller on tiny devices */
-        max-width: 50%;
+    .brand-name {
+        font-size: 1.2rem;
     }
     
-    nav a {
-        font-size: 0.7rem; /* Tiny nav text */
-    }
-    
-    .container {
-        padding: 0 10px; /* Add some side padding */
+    .header-logo {
+        height: 35px;
     }
 }
-
 /* Main Content Styles */
 .products-container {
     padding: 2rem 0;
@@ -307,6 +403,99 @@ footer {
     padding: 2rem;
     max-width: 800px;
     margin: 0 auto;
+}
+
+/* Bold Hero Section Styles */
+.hero-container {
+    
+    padding: 5rem 1rem;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: 2.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    line-height: 1.4;
+}
+
+.hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #25D366; /* WhatsApp green */
+    color: white;
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    border: 2px solid white;
+}
+
+.hero-cta:hover {
+    background: #128C7E; /* Darker WhatsApp green */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+
+.hero-cta i {
+    font-size: 1.5rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-container {
+        padding: 3rem 1rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .hero-cta {
+        padding: 0.8rem 1.8rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
 }
 
 
