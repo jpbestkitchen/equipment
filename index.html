@@ -3,17 +3,498 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Echewise Global Kitchen Equipment</title>
+    <title>De Chefas - Premium Kitchen Equipments</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #e63946;
+            --secondary: #1d3557;
+            --accent: #f1faee;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --text: #333333;
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--light);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        .main-header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .header-logo {
+            height: 50px;
+            width: auto;
+            border-radius: 50%;
+        }
+        
+        .brand-name {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+        
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link.active {
+            color: var(--primary);
+        }
+        
+        .nav-link.active:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .nav-cta {
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .nav-cta:hover {
+            background-color: #c1121f;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(225, 29, 72, 0.3);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 90vh;
+            position: relative;
+            margin-top: 80px;
+            overflow: hidden;
+            border-radius: 0 0 20px 20px;
+        }
+        
+        .hero-slideshow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .hero-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+        
+        .hero-slide:first-child {
+            opacity: 1;
+        }
+        
+        .hero-container {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(to right, rgba(29, 53, 87, 0.8), rgba(29, 53, 87, 0.5));
+        }
+        
+        .hero-content {
+            max-width: 600px;
+            padding: 40px;
+            color: white;
+        }
+        
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .hero-cta:hover {
+            background-color: #c1121f;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(225, 29, 72, 0.4);
+        }
+        
+        /* Categories Section */
+        .categories {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .categories h2 {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--secondary);
+            margin-bottom: 50px;
+        }
+        
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .category-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .category-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .category-card h3 {
+            padding: 20px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: var(--accent);
+        }
+        
+        .about h2 {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--secondary);
+            margin-bottom: 50px;
+        }
+        
+        .about-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-content img {
+            width: 50%;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        .about-text {
+            width: 50%;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            margin-top: 15px;
+        }
+        
+        .btn:hover {
+            background-color: #c1121f;
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .footer-section p {
+            opacity: 0.8;
+            margin-bottom: 15px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            opacity: 1;
+        }
+        
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .social-links a:hover {
+            opacity: 1;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+        }
+        
+        .hamburger {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: var(--dark);
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .hamburger:before,
+        .hamburger:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--dark);
+            left: 0;
+            transition: all 0.3s;
+        }
+        
+        .hamburger:before {
+            top: -8px;
+        }
+        
+        .hamburger:after {
+            bottom: -8px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-content img,
+            .about-text {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background-color: white;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                transition: right 0.3s ease;
+                padding: 80px 30px 30px;
+            }
+            
+            .main-nav.active {
+                right: 0;
+            }
+            
+            .main-nav ul {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .mobile-menu-toggle.active .hamburger {
+                background-color: transparent;
+            }
+            
+            .mobile-menu-toggle.active .hamburger:before {
+                transform: rotate(45deg);
+                top: 0;
+            }
+            
+            .mobile-menu-toggle.active .hamburger:after {
+                transform: rotate(-45deg);
+                bottom: 0;
+            }
+            
+            .hero {
+                height: 70vh;
+                margin-top: 70px;
+            }
+            
+            .hero-content {
+                padding: 20px;
+            }
+            
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="main-header">
         <div class="container">
             <div class="header-content">
                 <div class="logo-brand">
-                    <img src="images/logo.jpg" alt="Echewise Logo" class="header-logo">
-                    <span class="brand-name">Echewise Global Kitchen Equipment</span>
+                    <img src="images/logo.jpg" alt="De Chefas Logo" class="header-logo">
+                    <span class="brand-name">De Chefas Kitchen and Industrial Equipments</span>
                 </div>
                 
                 <button class="mobile-menu-toggle" aria-label="Toggle menu">
@@ -23,9 +504,9 @@
                 <nav class="main-nav">
                     <ul class="nav-list">
                         <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
-                        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-                        <li class="nav-item"><a href="#categories" class="nav-link">Categories</a></li>
-                        <li class="nav-item cta-item"><a href="https://wa.me/2348164015614" class="nav-cta">Contact Us</a></li>
+                        <li class="nav-item"><a href="#about" class="nav-link">Our Story</a></li>
+                        <li class="nav-item"><a href="#categories" class="nav-link">Products</a></li>
+                        <li class="nav-item cta-item"><a href="https://wa.me/2347082800179" class="nav-cta">Get a Quote</a></li>
                     </ul>
                 </nav>
             </div>
@@ -35,18 +516,18 @@
     <main>
         <section class="hero">
             <div class="hero-slideshow">
-                <div class="hero-slide" style="background-image: url('images/slushmachine.jpg');"></div>
-                <div class="hero-slide" style="background-image: url('images/icecream.jpg');"></div>
-                <div class="hero-slide" style="background-image: url('images/snack-warmer.jpg');"></div>
+                <div class="hero-slide" style="background-image: url('images/showroom2.webp');"></div>
+                <div class="hero-slide" style="background-image: url('images/shring-wrapper.webp');"></div>
+                <div class="hero-slide" style="background-image: url('images/showroom.jpg');"></div>
             </div>
             <div class="hero-container">
                 <div class="hero-content">
-                    <h2 class="hero-title">ECHEWISE GLOBAL KITCHEN EQUIPMENT</h2>
-                    <p class="hero-subtitle">Premium Commercial Kitchen Solutions for Businesses Worldwide</p>
-                    <a href="https://wa.me/2348164015614?text=Hello%20Echewise%20Global,%20I%20have%20a%20question%20about%20your%20products" 
+                    <h2 class="hero-title">The Best Choice For Industrial Kitchen Equipments</h2>
+                    <p class="hero-subtitle">Premium equipment trusted by restaurants, bakeries, and food businesses across Nigeria</p>
+                    <a href="https://wa.me/2347082800179?text=Hello%20De%20Chefas,%20I'm%20interested%20in%20your%20products" 
                        class="hero-cta" 
                        target="_blank">
-                       <i class="fab fa-whatsapp"></i> CHAT ON WHATSAPP
+                       <i class="fab fa-whatsapp"></i> GET EXPERT ADVICE
                     </a>
                 </div>
             </div>
@@ -54,35 +535,35 @@
 
         <section id="categories" class="categories">
             <div class="container">
-                <h2>Our Product Categories</h2>
+                <h2>Explore Our Product Range</h2>
                 <div class="category-grid">
                     <div class="category-card" onclick="window.location.href='fast-food.html'">
                         <img src="images/5.png" alt="Fast Food Equipment">
-                        <h3>Fast Food Equipment</h3>
+                        <h3>Fast Food Solutions</h3>
                     </div>
                     <div class="category-card" onclick="window.location.href='bakery.html'">
                         <img src="images/6.png" alt="Bakery Equipment">
-                        <h3>Bakery Equipment</h3>
+                        <h3>Bakery Essentials</h3>
                     </div>
                     <div class="category-card" onclick="window.location.href='packaging.html'">
                         <img src="images/7.png" alt="Packaging Equipment">
-                        <h3>Packaging Equipment</h3>
+                        <h3>Packaging Systems</h3>
                     </div>
                     <div class="category-card" onclick="window.location.href='food-processing.html'">
                         <img src="images/4.png" alt="Food Processing Equipment">
-                        <h3>Food Processing Equipment</h3>
+                        <h3>Food Processing</h3>
                     </div>
                     <div class="category-card" onclick="window.location.href='kitchen.html'">
                         <img src="images/2.png" alt="Kitchen Equipment">
-                        <h3>Kitchen Equipment</h3>
+                        <h3>Commercial Kitchen</h3>
                     </div>
                     <div class="category-card" onclick="window.location.href='supermarket.html'">
                         <img src="images/3.png" alt="Supermarket Equipment">
-                        <h3>Supermarket Equipment</h3>
+                        <h3>Supermarket Display</h3>
                     </div>
                     <div class="category-card" onclick="window.location.href='refrigeration.html'">
                         <img src="images/1.png" alt="Refrigeration Equipment">
-                        <h3>Refrigeration Equipment</h3>
+                        <h3>Refrigeration Units</h3>
                     </div>
                 </div>
             </div>
@@ -90,15 +571,15 @@
 
         <section id="about" class="about">
             <div class="container">
-                <h2>About Echewise Global</h2>
+                <h2>Our Commitment to Quality</h2>
                 <div class="about-content">
-                    <img src="images/showroom.jpg" alt="Our Showroom">
+                    <img src="images/showroom2.webp" alt="Our Showroom">
                     <div class="about-text">
-                        <p>Echewise Global Kitchen Equipment is a leading provider of high-quality industrial kitchen equipment with over 15 years of experience in the industry. We specialize in supplying commercial kitchens, restaurants, bakeries, and food processing facilities with the most reliable and efficient equipment on the market.</p>
-                        <p>Our mission is to help food service businesses operate at peak efficiency by providing durable, professional-grade equipment that stands the test of time. We source our products from the most reputable manufacturers worldwide.</p>
-                        <p>Contact us directly on WhatsApp for expert advice and customized solutions for your business needs.</p>
-                        <a href="https://wa.me/2348164015614" class="btn" target="_blank">
-                            <i class="fab fa-whatsapp"></i> Chat Now
+                        <p>Since 2008, De Chefas has been at the forefront of supplying professional kitchen equipment to Nigeria's thriving food service industry. We understand that your equipment is the backbone of your operation, which is why we only stock products that meet the highest standards of durability and performance.</p>
+                        <p>Our team of experts carefully selects each item in our inventory, partnering with trusted manufacturers globally to bring you equipment that delivers consistent results day after day. From small café essentials to large-scale industrial solutions, we have the perfect tools to elevate your food business.</p>
+                        <p>Beyond equipment supply, we offer personalized consultation to help you design the optimal kitchen layout and select the right tools for your specific needs and budget.</p>
+                        <a href="https://wa.me/2347082800179" class="btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Speak With Our Expert
                         </a>
                     </div>
                 </div>
@@ -110,40 +591,93 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Echewise Global Kitchen Equipment</h3>
-                    <p>Your trusted partner for industrial kitchen equipment since 2008.</p>
+                    <h3>De Chefas Equipment</h3>
+                    <p>Empowering food businesses with reliable, high-performance equipment since 2008.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#categories">Categories</a></li>
+                        <li><a href="#about">Our Story</a></li>
+                        <li><a href="#categories">Products</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>Connect With Us</h3>
                     <div class="social-links">
-                        <a href="https://web.facebook.com/profile.php?id=100063939943825" target="_blank">
-                            <i class="fab fa-facebook"></i> Echewise Facebook
+                        <a href="https://web.facebook.com/Chefas1" target="_blank">
+                            <i class="fab fa-facebook"></i> De Chefas Facebook
                         </a>
-                        <a href="https://instagram.com/echewise_global_kitchen_equip" target="_blank">
-                            <i class="fab fa-instagram"></i> Echewise Instagram
+                        <a href="https://instagram.com/dechefasfastfoodequipment" target="_blank">
+                            <i class="fab fa-instagram"></i> De Chefas Instagram
                         </a>
-                        <a href="https://wa.me/2348164015614" target="_blank">
-                            <i class="fab fa-whatsapp"></i> Echewise Whatsapp
+                        <a href="https://wa.me/2347082800179" target="_blank">
+                            <i class="fab fa-whatsapp"></i> De Chefas WhatsApp
                         </a>
                     </div>
-                    <p>Email: echewise1@gmail.com</p>
-                    <p>Phone: +234 816 401 5614</p>
+                    
+                    <p><i class="fas fa-phone"></i> +234 708 280 0179</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Echewise Global Kitchen Equipment. All Rights Reserved.</p>
+                <p>&copy; 2025 De Chefas Kitchen and Industrial Equipment. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            mainNav.classList.toggle('active');
+        });
+        
+        // Hero Slideshow
+        const heroSlides = document.querySelectorAll('.hero-slide');
+        let currentSlide = 0;
+        
+        function showSlide(n) {
+            heroSlides.forEach(slide => {
+                slide.style.opacity = 0;
+            });
+            
+            heroSlides[n].style.opacity = 1;
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % heroSlides.length;
+            showSlide(currentSlide);
+        }
+        
+        // Change slide every 5 seconds
+        setInterval(nextSlide, 5000);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if(this.getAttribute('href') === '#') return;
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if(mainNav.classList.contains('active')) {
+                        mobileMenuToggle.classList.remove('active');
+                        mainNav.classList.remove('active');
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
