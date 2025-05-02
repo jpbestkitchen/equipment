@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>De Chefas - Industrial Kitchen Equipments</title>
+    <title>Orienth | Premium Kitchen Solutions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #e63946;
-            --secondary: #1d3557;
-            --accent: #f1faee;
-            --light: #f8f9fa;
-            --dark: #212529;
+            --primary: #e74c3c;
+            --secondary: #2c3e50;
+            --accent: #ecf0f1;
+            --light: #ffffff;
+            --dark: #1a1a1a;
             --text: #333333;
-            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
         
         * {
@@ -26,29 +27,30 @@
         }
         
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             color: var(--text);
-            line-height: 1.6;
+            line-height: 1.7;
             background-color: var(--light);
+            overflow-x: hidden;
         }
         
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
         
         /* Header Styles */
         .main-header {
-            background-color: white;
+            background-color: var(--light);
             box-shadow: var(--shadow);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
             padding: 15px 0;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
         
         .header-content {
@@ -64,22 +66,23 @@
         }
         
         .header-logo {
-            height: 50px;
+            height: 45px;
             width: auto;
             border-radius: 50%;
         }
         
         .brand-name {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
+            font-family: 'Libre Baskerville', serif;
+            font-weight: 700;
             color: var(--secondary);
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            letter-spacing: 0.5px;
         }
         
         .main-nav ul {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 30px;
         }
         
         .nav-link {
@@ -88,7 +91,8 @@
             font-weight: 500;
             position: relative;
             padding: 5px 0;
-            transition: color 0.3s;
+            transition: var(--transition);
+            font-size: 0.95rem;
         }
         
         .nav-link:hover {
@@ -112,16 +116,19 @@
         .nav-cta {
             background-color: var(--primary);
             color: white;
-            padding: 8px 20px;
-            border-radius: 30px;
+            padding: 10px 25px;
+            border-radius: 4px;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: var(--transition);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
         }
         
         .nav-cta:hover {
-            background-color: #c1121f;
+            background-color: #c0392b;
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(225, 29, 72, 0.3);
+            box-shadow: 0 6px 15px rgba(231, 76, 60, 0.3);
         }
         
         /* Hero Section */
@@ -130,7 +137,6 @@
             position: relative;
             margin-top: 80px;
             overflow: hidden;
-            border-radius: 0 0 20px 20px;
         }
         
         .hero-slideshow {
@@ -158,119 +164,177 @@
             height: 100%;
             display: flex;
             align-items: center;
-            background: linear-gradient(to right, rgba(29, 53, 87, 0.8), rgba(29, 53, 87, 0.5));
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.85) 0%, rgba(44, 62, 80, 0.7) 100%);
         }
         
         .hero-content {
-            max-width: 600px;
-            padding: 40px;
+            max-width: 650px;
+            padding: 50px;
             color: white;
         }
         
         .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             line-height: 1.2;
+            text-transform: capitalize;
         }
         
         .hero-subtitle {
             font-size: 1.2rem;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             opacity: 0.9;
+            font-weight: 300;
         }
         
         .hero-cta {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             background-color: var(--primary);
             color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
+            padding: 15px 35px;
+            border-radius: 4px;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
         }
         
         .hero-cta:hover {
-            background-color: #c1121f;
+            background-color: #c0392b;
             transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(225, 29, 72, 0.4);
+            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.4);
         }
         
         /* Categories Section */
         .categories {
-            padding: 80px 0;
-            background-color: white;
+            padding: 100px 0;
+            background-color: var(--light);
         }
         
-        .categories h2 {
+        .section-title {
             text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2.5rem;
             color: var(--secondary);
-            margin-bottom: 50px;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: var(--text);
+            opacity: 0.8;
+            font-size: 1.1rem;
         }
         
         .category-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
         
         .category-card {
             background-color: white;
-            border-radius: 10px;
+            border-radius: 8px;
             overflow: hidden;
             box-shadow: var(--shadow);
-            transition: all 0.3s;
+            transition: var(--transition);
             cursor: pointer;
+            position: relative;
         }
         
         .category-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
         }
         
         .category-card img {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .category-card:hover img {
+            transform: scale(1.05);
         }
         
         .category-card h3 {
-            padding: 20px;
+            padding: 25px;
             text-align: center;
             font-weight: 600;
             color: var(--secondary);
+            font-size: 1.2rem;
+            position: relative;
+        }
+        
+        .category-card h3:after {
+            content: '';
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary);
         }
         
         /* About Section */
         .about {
-            padding: 80px 0;
+            padding: 100px 0;
             background-color: var(--accent);
+            position: relative;
         }
         
-        .about h2 {
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            color: var(--secondary);
-            margin-bottom: 50px;
+        .about:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/pattern.png') repeat;
+            opacity: 0.05;
+            pointer-events: none;
         }
         
         .about-content {
             display: flex;
-            gap: 40px;
+            gap: 50px;
             align-items: center;
+            position: relative;
         }
         
         .about-content img {
             width: 50%;
-            border-radius: 10px;
+            border-radius: 8px;
             box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .about-content img:hover {
+            transform: translateY(-5px);
         }
         
         .about-text {
@@ -278,52 +342,82 @@
         }
         
         .about-text p {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+            line-height: 1.8;
         }
         
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             background-color: var(--primary);
             color: white;
-            padding: 10px 25px;
-            border-radius: 30px;
+            padding: 12px 30px;
+            border-radius: 4px;
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
+            font-weight: 600;
+            transition: var(--transition);
             margin-top: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
         }
         
         .btn:hover {
-            background-color: #c1121f;
-            transform: translateY(-2px);
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.3);
         }
         
         /* Footer */
         footer {
             background-color: var(--secondary);
             color: white;
-            padding: 60px 0 20px;
+            padding: 80px 0 30px;
+            position: relative;
+        }
+        
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary) 0%, #e74c3c 100%);
         }
         
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 50px;
+            margin-bottom: 50px;
         }
         
         .footer-section h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            margin-bottom: 20px;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
             color: var(--accent);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary);
         }
         
         .footer-section p {
             opacity: 0.8;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            line-height: 1.8;
         }
         
         .footer-section ul {
@@ -331,44 +425,60 @@
         }
         
         .footer-section ul li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         
         .footer-section ul li a {
             color: white;
             text-decoration: none;
             opacity: 0.8;
-            transition: opacity 0.3s;
+            transition: var(--transition);
+            display: inline-block;
         }
         
         .footer-section ul li a:hover {
             opacity: 1;
+            transform: translateX(5px);
+            color: var(--primary);
         }
         
         .social-links {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin-bottom: 20px;
+            gap: 15px;
+            margin-bottom: 25px;
         }
         
         .social-links a {
             color: white;
             text-decoration: none;
             opacity: 0.8;
-            transition: opacity 0.3s;
+            transition: var(--transition);
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
         
         .social-links a:hover {
             opacity: 1;
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+        
+        .contact-info {
+            margin-bottom: 20px;
+        }
+        
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
         }
         
         .footer-bottom {
             text-align: center;
-            padding-top: 20px;
+            padding-top: 30px;
             border-top: 1px solid rgba(255,255,255,0.1);
             opacity: 0.7;
             font-size: 0.9rem;
@@ -390,7 +500,7 @@
             height: 2px;
             background-color: var(--dark);
             position: relative;
-            transition: all 0.3s;
+            transition: var(--transition);
         }
         
         .hamburger:before,
@@ -401,7 +511,7 @@
             height: 100%;
             background-color: var(--dark);
             left: 0;
-            transition: all 0.3s;
+            transition: var(--transition);
         }
         
         .hamburger:before {
@@ -413,9 +523,9 @@
         }
         
         /* Responsive Styles */
-        @media (max-width: 992px) {
+        @media (max-width: 1100px) {
             .hero-title {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
             
             .about-content {
@@ -433,13 +543,13 @@
                 position: fixed;
                 top: 0;
                 right: -100%;
-                width: 80%;
-                max-width: 300px;
+                width: 85%;
+                max-width: 320px;
                 height: 100vh;
                 background-color: white;
-                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-                transition: right 0.3s ease;
-                padding: 80px 30px 30px;
+                box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+                transition: right 0.4s ease;
+                padding: 100px 40px 40px;
             }
             
             .main-nav.active {
@@ -448,7 +558,7 @@
             
             .main-nav ul {
                 flex-direction: column;
-                gap: 20px;
+                gap: 25px;
             }
             
             .mobile-menu-toggle {
@@ -470,20 +580,47 @@
             }
             
             .hero {
-                height: 70vh;
+                height: 75vh;
                 margin-top: 70px;
             }
             
             .hero-content {
-                padding: 20px;
+                padding: 30px;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                height: 85vh;
             }
             
             .hero-title {
                 font-size: 1.8rem;
             }
             
-            .hero-subtitle {
-                font-size: 1rem;
+            .hero-cta, .btn {
+                padding: 12px 25px;
+                font-size: 0.8rem;
+            }
+            
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .brand-name {
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -493,8 +630,8 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo-brand">
-                    <img src="images/logo.jpg" alt="De Chefas Logo" class="header-logo">
-                    <span class="brand-name">De Chefas Kitchen and Industrial Equipments</span>
+                    <img src="images/logo.jpg" alt="Orienth" class="header-logo">
+                    <span class="brand-name">Orienth Kitchen Solutions</span>
                 </div>
                 
                 <button class="mobile-menu-toggle" aria-label="Toggle menu">
@@ -504,9 +641,9 @@
                 <nav class="main-nav">
                     <ul class="nav-list">
                         <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
-                        <li class="nav-item"><a href="#about" class="nav-link">Our Story</a></li>
+                        <li class="nav-item"><a href="#about" class="nav-link">About Us</a></li>
                         <li class="nav-item"><a href="#categories" class="nav-link">Products</a></li>
-                        <li class="nav-item cta-item"><a href="https://wa.me/2347082800179" class="nav-cta">Get a Quote</a></li>
+                        <li class="nav-item cta-item"><a href="https://wa.me/2347082800179" class="nav-cta">Get Pricing</a></li>
                     </ul>
                 </nav>
             </div>
@@ -516,18 +653,18 @@
     <main>
         <section class="hero">
             <div class="hero-slideshow">
-                <div class="hero-slide" style="background-image: url('images/showroom2.webp');"></div>
-                <div class="hero-slide" style="background-image: url('images/shring-wrapper.webp');"></div>
-                <div class="hero-slide" style="background-image: url('images/showroom.jpg');"></div>
+                <div class="hero-slide" style="background-image: url('images/smart12.jpg');"></div>
+                <div class="hero-slide" style="background-image: url('images/smart4.jpg');"></div>
+                <div class="hero-slide" style="background-image: url('images/smart7.jpg');"></div>
             </div>
             <div class="hero-container">
                 <div class="hero-content">
-                    <h2 class="hero-title">The Best Choice For Industrial Kitchen Equipments</h2>
-                    <p class="hero-subtitle">Premium equipment trusted by restaurants, bakeries, and food businesses across Nigeria</p>
-                    <a href="https://wa.me/2347082800179?text=Hello%20De%20Chefas,%20I'm%20interested%20in%20your%20products" 
+                    <h2 class="hero-title">Smart Kitchen Equipment for Modern Businesses</h2>
+                    <p class="hero-subtitle">Premium commercial and private kitchen solutions trusted by Nigeria's top restaurants, hotels, and food service providers</p>
+                    <a href="https://wa.me/2348035517042?text=Hello%20Orienth%20Kitchen,%20I'm%20interested%20in%20your%20products" 
                        class="hero-cta" 
                        target="_blank">
-                       <i class="fab fa-whatsapp"></i> GET EXPERT ADVICE
+                       <i class="fab fa-whatsapp"></i> Chat With Our Expert
                     </a>
                 </div>
             </div>
@@ -535,35 +672,43 @@
 
         <section id="categories" class="categories">
             <div class="container">
-                <h2>Explore Our Product Range</h2>
+                <h2 class="section-title">Our Product Collections</h2>
+                <p class="section-subtitle">Discover our comprehensive range of commercial kitchen equipment designed to meet the needs of every food service business</p>
                 <div class="category-grid">
                     <div class="category-card" onclick="window.location.href='fast-food.html'">
                         <img src="images/5.png" alt="Fast Food Equipment">
-                        <h3>Fast Food & Catering Equipments</h3>
+                        <h3>Fast Food & Catering Solutions</h3>
                     </div>
+                    <div class="category-card" onclick="window.location.href='smartkitchen.html'">
+                        <img src="images/2.png" alt="Smart Kitchen">
+                        <h3>Smart Kitchen Technology</h3>
+                    </div>
+
                     <div class="category-card" onclick="window.location.href='bakery.html'">
                         <img src="images/6.png" alt="Bakery Equipment">
-                        <h3>Bakery Essentials</h3>
+                        <h3>Bakery & Pastry Equipment</h3>
                     </div>
                     <div class="category-card" onclick="window.location.href='packaging.html'">
                         <img src="images/7.png" alt="Packaging Equipment">
-                        <h3>Packaging Systems</h3>
+                        <h3>Packaging & Labeling Systems</h3>
                     </div>
                     <div class="category-card" onclick="window.location.href='food-processing.html'">
                         <img src="images/4.png" alt="Food Processing Equipment">
-                        <h3>Food Processing</h3>
+                        <h3>Food Processing Machinery</h3>
                     </div>
-                    <div class="category-card" onclick="window.location.href='kitchen.html'">
-                        <img src="images/2.png" alt="Kitchen Equipment">
-                        <h3>Kitchen and Laundry Equipments</h3>
-                    </div>
+                    
                     <div class="category-card" onclick="window.location.href='supermarket.html'">
                         <img src="images/3.png" alt="Supermarket Equipment">
-                        <h3>Supermarket Display</h3>
+                        <h3>Supermarket Display Solutions</h3>
                     </div>
                     <div class="category-card" onclick="window.location.href='refrigeration.html'">
                         <img src="images/1.png" alt="Refrigeration Equipment">
-                        <h3>Refrigeration Units</h3>
+                        <h3>Commercial Refrigeration</h3>
+                    </div>
+
+                    <div class="category-card" onclick="window.location.href='kitchen.html'">
+                        <img src="images/2.png" alt="Kitchen Equipment">
+                        <h3>Professional Kitchen Essentials</h3>
                     </div>
                 </div>
             </div>
@@ -571,15 +716,16 @@
 
         <section id="about" class="about">
             <div class="container">
-                <h2>Our Commitment to Quality</h2>
+                <h2 class="section-title">Our Story</h2>
+                <p class="section-subtitle">Delivering excellence in kitchen equipment since 2015</p>
                 <div class="about-content">
-                    <img src="images/showroom2.webp" alt="Our Showroom">
+                    <img src="images/showroom2.webp" alt="Orienth Showroom">
                     <div class="about-text">
-                        <p>Since 2015, De Chefas has been at the forefront of supplying professional kitchen equipment to Nigeria's thriving food service industry. We understand that your equipment is the backbone of your operation, which is why we only stock products that meet the highest standards of durability and performance.</p>
-                        <p>Our team of experts carefully selects each item in our inventory, partnering with trusted manufacturers globally to bring you equipment that delivers consistent results day after day. From small café essentials to large-scale industrial solutions, we have the perfect tools to elevate your food business.</p>
-                        <p>Beyond equipment supply, we offer personalized consultation to help you design the optimal kitchen layout and select the right tools for your specific needs and budget.</p>
-                        <a href="https://wa.me/2347082800179" class="btn" target="_blank">
-                            <i class="fab fa-whatsapp"></i> Speak With Our Expert
+                        <p>Orienth Kitchen Solutions has established itself as a leader in Nigeria's commercial kitchen equipment industry. Our journey began with a simple mission: to provide food businesses with reliable, high-performance equipment that stands the test of time in demanding kitchen environments.</p>
+                        <p>What sets us apart is our meticulous selection process. Each piece of equipment in our inventory undergoes rigorous evaluation for durability, efficiency, and ease of use. We partner with manufacturers who share our commitment to quality, ensuring that every product meets international standards while being suited to local conditions.</p>
+                        <p>Beyond supplying equipment, we offer comprehensive support including kitchen design consultation, equipment selection guidance, and after-sales service. Our team of experts understands the unique challenges of Nigeria's food industry and provides tailored solutions to help your business thrive.</p>
+                        <a href="https://wa.me/2348035517042" class="btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Connect With Our Team
                         </a>
                     </div>
                 </div>
@@ -591,39 +737,38 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>De Chefas Equipment</h3>
-                    <p>Empowering food businesses with reliable, high-performance equipment since 2015.</p>
+                    <h3>Orienth Kitchen Solutions</h3>
+                    <p>Your trusted partner for commercial kitchen equipment in Nigeria. We provide premium solutions that empower food businesses to operate efficiently and deliver exceptional results.</p>
                 </div>
                 <div class="footer-section">
-                    <h3>Quick Links</h3>
+                    <h3>Quick Navigation</h3>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="#about">Our Story</a></li>
-                        <li><a href="#categories">Products</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#categories">Product Collections</a></li>
+                        <li><a href="https://wa.me/2347082800179">Get a Quote</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>Connect With Us</h3>
+                    <h3>Contact Information</h3>
                     <div class="social-links">
-                        <a href="https://web.facebook.com/Chefas1" target="_blank">
-                            <i class="fab fa-facebook"></i> De Chefas Facebook
+                        <a href="https://instagram.com/orienthkitchen" target="_blank">
+                            <i class="fab fa-instagram"></i> @orienthkitchen
                         </a>
-                        <a href="https://instagram.com/dechefasfoodequipment" target="_blank">
-                            <i class="fab fa-instagram"></i> De Chefas Instagram
-                        </a>
-                        <a href="https://wa.me/2347082800179" target="_blank">
-                            <i class="fab fa-whatsapp"></i> De Chefas WhatsApp
+                        <a href="https://wa.me/2348035517042" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp Chat
                         </a>
                     </div>
                     
-                    <p><i class="fas fa-phone"></i> +234 708 280 0179 </p>
-                    <p><i class="fas fa-mail"></i> henryobasi13@gmail.com </p>
-
-                    <p><i class="fas fa-map-marker-alt"></i> I love Jesus Plaza, Beside Airtel Office, Ojo Alaba int'l Lagos, Nigeria</p>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +234 803 551 7042</p>
+                        <p><i class="fas fa-envelope"></i> info@orienthkitchen.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> 40/41 First Floor Divine Plaza, Opp UBA Bank Oduade, Lagos, Nigeria</p>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 De Chefas Kitchen and Industrial Equipment. All rights reserved.</p>
+                <p>&copy; 2025 Orienth Kitchen Solutions. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -636,6 +781,7 @@
         mobileMenuToggle.addEventListener('click', () => {
             mobileMenuToggle.classList.toggle('active');
             mainNav.classList.toggle('active');
+            document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : 'auto';
         });
         
         // Hero Slideshow
@@ -658,6 +804,18 @@
         // Change slide every 5 seconds
         setInterval(nextSlide, 5000);
         
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.main-header');
+            if (window.scrollY > 50) {
+                header.style.padding = '10px 0';
+                header.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
+            } else {
+                header.style.padding = '15px 0';
+                header.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+            }
+        });
+        
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -676,6 +834,7 @@
                     if(mainNav.classList.contains('active')) {
                         mobileMenuToggle.classList.remove('active');
                         mainNav.classList.remove('active');
+                        document.body.style.overflow = 'auto';
                     }
                 }
             });
