@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('click', function() {
             const productName = this.getAttribute('data-product');
             const whatsappNumber = '+2348032564081';
-            const message = `Hello De Chefas, I'm interested in your ${productName}. Please send me more details and pricing information.`;
+            const message = `Hello UC Angel, I'm interested in your ${productName}. Please send me more details and pricing information.`;
             
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
