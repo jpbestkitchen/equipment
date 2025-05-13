@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
     buyButtons.forEach(button => {
         button.addEventListener('click', function() {
             const productName = this.getAttribute('data-product');
-            const whatsappNumber = '+2348032564081';
-            const message = `Hello UC Angel, I'm interested in your ${productName}. Please send me more details and pricing information.`;
+            const whatsappNumber = '+2349133105615';
+            const message = `Hello JP Best, I'm interested in your ${productName}. Please send me more details and pricing information.`;
             
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
